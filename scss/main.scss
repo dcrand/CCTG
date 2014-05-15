@@ -1,0 +1,505 @@
+/*! Centralia Coal Transition Grants | Developed by ShowPony | http://weareshowpony.com/ */
+
+//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////    Main Syles (Mobile First)      ///////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+    //@import '_normalize';
+    @import '../bower_components/semantic-grid/stylesheets/reset.scss';
+    @import '../bower_components/semantic-grid/stylesheets/scss/grid.scss';
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+    
+    ///////////// Colors /////////////
+    $gray          : #76787b;
+    $gray-light    : #acadae;
+    $gray-lighter  : #d0d3d5;
+    $tan           : #76787b;
+    $tan-light     : #d3d3d3;       
+    $orange        : #f47836;
+    $orange-dark   : #c54f10;
+    $blue          : #00a4e4;
+
+    $white50        : rgba(255,255,255,.7);
+    $white80        : rgba(255,255,255,.9);
+
+    $black         : rgba(0,0,0,1);
+        
+
+    ///////////// Sitewide /////////////
+    $font-stack    : 'Lato', sans-serif;
+    $primary-color : $gray;
+
+
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {    
+    color: $primary-color;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: $font-stack;
+    font-weight: 400;
+    background: #efefee;
+    text-rendering: optimizeLegibility; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+}
+
+
+::selection {
+    background: $orange;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $orange;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+@font-face {
+    font-family: 'icon';
+    src:url('../fonts/icon.eot?1taow8');
+    src:url('../fonts/icon.eot?#iefix1taow8') format('embedded-opentype'),
+        url('../fonts/icon.woff?1taow8') format('woff'),
+        url('../fonts/icon.ttf?1taow8') format('truetype'),
+        url('../fonts/icon.svg?1taow8#icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tower:before {
+    content: "\e600";
+}
+.icon-recycle:before {
+    content: "\e601";
+}
+.icon-pin:before {
+    content: "\e602";
+}
+.icon-mail:before {
+    content: "\e603";
+}
+.icon-info:before {
+    content: "\e604";
+}
+.icon-hammer:before {
+    content: "\e605";
+}
+.icon-drop:before {
+    content: "\e606";
+}
+.icon-down_arrow:before {
+    content: "\e607";
+}
+.icon-check:before {
+    content: "\e608";
+}
+
+
+h1,h2,h3,h4{
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 1.750em; //28
+    margin: 0.67em 0;
+    line-height: 1.1em;
+}
+
+h2 {
+    font-size: 1.313em; //21
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em; //18
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em; //16
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em; 
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+p{
+    line-height: 1.4em;
+    margin: 0.75em 0;
+}
+
+a{
+    color: $orange;
+    text-decoration: none;
+    &:hover, &:active, &:focus{
+        color: $orange-dark;
+    }
+}
+
+/* ==========================================================================
+   Grid / Layout 
+   ========================================================================== */
+
+//Grid Columns @include column(9);
+
+$columns: 12;
+$column-width: 60;
+$gutter-width: 20;
+$total-width: 100%; 
+
+
+.wrap{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.pad{
+    padding: 1em 1.04167%;
+}
+
+
+/* ==========================================================================
+   Header / Logo 
+   ========================================================================== */
+
+  header{
+    background: url(../img/home.jpg) no-repeat center center;    
+    background-size: cover;
+    height: 400px;
+  } 
+
+#logo{
+    background: $orange;
+    display: block;
+    height: 40px;
+    padding: 15px 0;
+    width: 100%;
+    border-bottom: 3px solid $orange-dark;
+    text-align: center;
+
+    img{
+        width: 200px;
+    }
+}
+
+
+/* ==========================================================================
+   Navigation 
+   ========================================================================== */
+
+#nav{
+    position: relative;
+
+    a{
+        color: white;
+        text-decoration: none;
+        line-height: 1.4em;
+    }
+
+    a:hover, a:active .current-menu-item{
+        background: $orange-dark;
+    }    
+
+    & > a{
+        display: none;
+        width: 2.5em;
+        height: 2.5em;
+        text-align: left;
+        text-indent: -9999px;
+        background-color: $orange-dark;
+        position: absolute;
+        top: -57px;
+        left: 10px;
+
+        &:before, &:after{
+            position: absolute;
+            border: 2px solid #fff;
+            top: 35%;
+            left: 25%;
+            right: 25%;
+            content: '';
+        }
+
+        &:after{
+            top: 60%;
+        }
+    }
+    
+    &:not( :target ) > a:first-of-type,
+    &:target > a:last-of-type{
+        display: block;
+    }
+
+    /* first level */
+    ul{
+        height: auto;
+        display: none;
+        position: absolute;
+        background: rgba($black, 0.8);
+        left: 0;
+        right: 0;
+
+        li{
+            width: 100%;   
+            a{
+                text-align: left;
+                display: block;
+                padding: 1em 0.833em;
+            } 
+        }
+    }
+
+    ul > li:hover > a,
+    ul:not( :hover ) > li.active > a{
+        background-color: $black;        
+    }
+
+    &:target > ul{
+        display: block;
+    }
+
+
+    /* second level */
+    li ul{
+        display: none;
+        position: static;
+        top: 100%;
+        background: rgba($black, 0.8);
+
+        li{
+            a{padding-left: 2em;}
+        }
+    }
+
+    li:hover ul{
+        display: block;
+    }
+
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero{
+    @extend .wrap;
+    h1{
+        background: rgba($blue, 0.6);        
+        padding: 2em;
+        text-align: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.313em;
+        line-height: 1.2em;
+        margin: 0;
+    }
+}
+
+/* ==========================================================================
+How To Apply
+========================================================================== */
+    
+#how-to-apply{
+    @include clearfix();
+    padding: 3em 0;       
+    color: $tan;
+    background: $tan-light;
+    text-align: center;
+
+    .third{
+        //padding: 2em 0;
+    }        
+    
+    span{
+        font-size: 4.688em;
+    }
+    p{
+        font-size: 0.875em;
+    }
+}
+
+/* ==========================================================================
+Grants
+========================================================================== */
+
+#grants{
+    @include clearfix();
+    padding: 3em 0;   
+    p:first-child{
+        text-align: center;
+        font-size: 1.125em;
+        @extend .pad;
+        color: $gray-light;
+    }
+}
+    
+.thumb-box{
+    display: block;
+    @include column(12);
+    margin-top: 1em;
+    border: solid 1px $gray-light;
+    background: white;
+    color: $primary-color;
+    position: relative;    
+   
+
+    .inner{
+        padding: 1em;
+        border-bottom: 7px solid $gray-lighter;
+        min-height: 12em;        
+    }
+
+    h3{
+        color: $blue;
+        text-transform: uppercase;
+    }
+
+    p{
+        font-size: 0.875em;
+    }
+
+    .over{
+        position: absolute;
+        top: 0;
+        background: rgba($black, 0.6);
+        width: 100%;
+        height: 180px;
+        opacity: 0;
+            
+        span{
+            font-size: 60px;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -30px;
+            margin-left: -30px;            
+        }
+    }
+
+    .thumb {
+        text-align: center;
+    }    
+
+
+    &:hover > .inner{
+        border-bottom: 7px solid $orange;
+        color: $primary-color;
+    }
+
+    &:hover > .over{
+        opacity: 1;
+    }
+
+}
+
+
+
+
+/* ==========================================================================
+Footer
+========================================================================== */
+
+footer{
+    background: $blue;
+    color: white;
+    @extend .pad;
+
+    small{
+        display: block;
+        @extend .wrap;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 45em) {
+
+    @import 'md.scss';
+
+} //End Media Queries
+
+/* ==========================================================================
+   MISC Styles
+   ========================================================================== */
+
+   @import 'misc.scss';
+
+

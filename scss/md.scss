@@ -1,0 +1,151 @@
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// Medium Stylesheet //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+/* ==========================================================================
+   Grid / Layout 
+   ========================================================================== */
+
+     .third{@include column(4);}
+
+/* ==========================================================================
+   Header / Logo 
+   ========================================================================== */    
+    
+    #logo{
+        position: absolute;    
+        float: left;    
+        height: 50px;
+        padding: 10px 0;
+        width: 270px;
+        border-bottom: 3px solid $orange-dark;
+        text-align: center;
+
+        img{
+            width: 230px;
+        }
+    }
+
+
+/* ==========================================================================
+   Navigation 
+   ========================================================================== */ 
+
+    .nav-wrap{
+        background: rgba($black, 0.8);
+        @include clearfix();
+        position: fixed;
+        width: 100%;      
+        z-index: 10;
+    }
+
+    #nav{
+
+        & > a{
+            display: none !important;
+        }
+
+        li{
+            position: relative;
+        }
+     
+        /* first level */
+        & > ul{
+            background: none;
+            display: block;
+            position: initial;
+            float: right;
+            height: 3.438em;
+            left: initial;
+            width: 60%;
+
+        }
+        
+        & > ul > li{
+            width: 25%;
+            height: 100%;
+            float: left;
+        }
+
+        ul > li:hover > a,
+        ul:not( :hover ) > li.active > a{
+            background-color: initial;
+            font-weight: 700;        
+        }
+
+        /* second level */
+        li ul{
+            display: none;
+            background: $white50;
+            position: absolute;
+            top: 100%;
+
+            li{
+                a{
+                    padding-left: 1em;
+                    color: $gray;
+                }
+
+                &:hover{
+                    background: $white80;                    
+                }
+            }
+        }
+
+        li:hover ul {
+            display: block;                  
+        }
+    }
+
+
+/* ==========================================================================
+Hero
+========================================================================== */
+
+.hero{
+    position: relative;
+    top: 30%;
+}
+
+/* ==========================================================================
+Grants
+========================================================================== */
+
+#grants{
+    
+}
+    
+.thumb-box{
+    @include column(4);
+    margin: 0 0.9%;
+
+    .inner{
+        //padding: 1em;
+        border-bottom: 7px solid $gray-lighter;
+        transition: all 0.15s ease-in-out 0s;
+    }
+
+    .over{     
+        transition: all 0.15s ease-in-out 0s;
+    }
+
+    .thumb{
+        overflow: hidden;
+    }
+
+
+    &:hover > .thumb img{
+        transform: scale(1.15);
+        transition: all 0.15s ease-in-out 0s;
+    }
+
+
+
+}
+
+
+
+
+
