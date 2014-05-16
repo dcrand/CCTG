@@ -1,0 +1,21 @@
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// X-Large Stylesheet //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+/* ==========================================================================
+   Header / Logo 
+   ========================================================================== */
+
+  header{
+    background-color: $gray;
+    background-image: url(../img/home.jpg); 
+    background-repeat: no-repeat;   
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+    height: 400px;
+
+  } 

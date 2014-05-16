@@ -7,9 +7,12 @@ $(document).ready(function(){
 	
 	$( '#nav li:has(ul)' ).doubleTapToGo();
 
-	$('header').stellar({
+	$(window).stellar({
   		 parallaxBackgrounds: true,
-  		 horizontalScrolling: false
+  		 horizontalScrolling: false,
+  		 //verticalOffset: 80,
+  		 //responsive: true,  		
+
 	});
 
 

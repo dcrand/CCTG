@@ -7,9 +7,10 @@
 /* ==========================================================================
    Imports
    ========================================================================== */
-    //@import '_normalize';
+    //@import '_normalize';    
     @import '../bower_components/semantic-grid/stylesheets/reset.scss';
     @import '../bower_components/semantic-grid/stylesheets/scss/grid.scss';
+    @import '_mixins';
 
 /* ==========================================================================
    Variables
@@ -51,13 +52,21 @@ textarea {
 
 html {
     font-size: 1em;
-    line-height: 1.4;
+    line-height: $base-line-height;
     font-family: $font-stack;
     font-weight: 400;
     background: #efefee;
     text-rendering: optimizeLegibility; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
+}
+
+html,
+body { height: 100%; }
+ 
+body {
+  display: table;
+  width: 100%;
 }
 
 
@@ -155,29 +164,23 @@ h1,h2,h3,h4{
 }
 
 h1 {
-    font-size: 1.750em; //28
-    margin: 0.67em 0;
-    line-height: 1.1em;
+    @include baseline(28px);
 }
 
 h2 {
-    font-size: 1.313em; //21
-    margin: 0.83em 0;
+    @include baseline(21px);;
 }
 
 h3 {
-    font-size: 1.17em; //18
-    margin: 1em 0;
+   @include baseline(18px);
 }
 
 h4 {
-    font-size: 1em; //16
-    margin: 1.33em 0;
+    @include baseline(16px);
 }
 
 h5 {
-    font-size: 0.83em; 
-    margin: 1.67em 0;
+    @include baseline(14px);
 }
 
 h6 {
@@ -186,16 +189,28 @@ h6 {
 }
 
 p{
-    line-height: 1.4em;
-    margin: 0.75em 0;
+    @include baseline(16px);
+}
+
+address{
+    @include baseline(16px);
+}
+
+li{
+    line-height: $base-line-height;
 }
 
 a{
     color: $orange;
     text-decoration: none;
+    //@include baseline(16px);
     &:hover, &:active, &:focus{
         color: $orange-dark;
     }
+}
+
+strong, b{
+    font-weight: 700;
 }
 
 /* ==========================================================================
@@ -219,15 +234,26 @@ $total-width: 100%;
     padding: 1em 1.04167%;
 }
 
+.page-row {
+  display: table-row;
+  height: 1px;
+  height: 100%;
+}
+
 
 /* ==========================================================================
    Header / Logo 
    ========================================================================== */
 
   header{
-    background: url(../img/home.jpg) no-repeat center center;    
-    background-size: cover;
+    background-color: $gray;
+    background-image: url(../img/home.jpg); 
+    background-repeat: no-repeat;   
+    background-position: top center;
+    background-attachment: fixed;
+    position: relative;
     height: 400px;
+
   } 
 
 #logo{
@@ -251,6 +277,7 @@ $total-width: 100%;
 
 #nav{
     position: relative;
+    z-index: 100;
 
     a{
         color: white;
@@ -357,8 +384,30 @@ $total-width: 100%;
     }
 }
 
+.page-hero{
+
+    position: relative;
+        
+    h1{  
+        background: rgba($blue, 0.6);        
+        padding: .4em;
+        text-align: center;
+        color: white;
+        margin: 0;        
+        font-weight: 300; 
+        font-size: 1.8em;
+        text-transform: uppercase;
+        line-height: 1.2em;
+    }
+
+    i{
+        font-size: 1em;
+        vertical-align: -2px;
+    }
+}
+
 /* ==========================================================================
-How To Apply
+How To Apply -HP
 ========================================================================== */
     
 #how-to-apply{
@@ -367,13 +416,35 @@ How To Apply
     color: $tan;
     background: $tan-light;
     text-align: center;
+    position: relative;
 
     .third{
         //padding: 2em 0;
+    }
+
+    &:before{
+        content: 'HOW TO APPLY';
+        display: block;
+        background: $blue;
+        color: white;
+        text-align: center;
+        width: 180px;
+        padding: 10px 0;
+        font-weight: 700;
+        position: absolute;
+        left: 50%;
+        top: -20px;
+        margin-left: -90px;
+
     }        
     
-    span{
+    [class^="icon-"]{
         font-size: 4.688em;
+        color: $primary-color;
+
+        &:hover{
+            color: $orange-dark;
+        }
     }
     p{
         font-size: 0.875em;
@@ -381,12 +452,30 @@ How To Apply
 }
 
 /* ==========================================================================
-Grants
+Grants -HP
 ========================================================================== */
 
 #grants{
     @include clearfix();
-    padding: 3em 0;   
+    padding: 3em 0 5em 0;
+    position: relative;
+
+    &:before{
+        content: 'GRANTS';
+        display: block;
+        background: $blue;
+        color: white;
+        text-align: center;
+        width: 180px;
+        padding: 10px 0;
+        font-weight: 700;
+        position: absolute;
+        left: 50%;
+        top: -20px;
+        margin-left: -90px;
+
+    }
+
     p:first-child{
         text-align: center;
         font-size: 1.125em;
@@ -456,6 +545,65 @@ Grants
 }
 
 
+/* ==========================================================================
+Main Content 
+========================================================================== */
+
+#content{
+
+    
+}
+
+.heading{
+    color: $blue;
+    border-bottom: 1px solid $orange;
+    text-transform: uppercase;    
+}
+
+/* ==========================================================================
+Sidebar 
+========================================================================== */
+
+#sidebar{
+    
+    i{
+        font-size: 2em;
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+
+    a{
+        color: $primary-color;
+        &:hover{
+            color: $orange-dark;
+        }
+    }
+
+    nav{
+        background: white;
+        padding: 1em;
+        text-transform: uppercase;
+        
+        a{
+            font-size: small;
+        }
+
+        a:hover, a:active, .current-menu-item{
+            color: $blue;
+        }
+    }
+
+    h3{
+        color: $blue;
+        text-transform: uppercase;
+    }
+
+    .btn{
+        display: block;        
+    }
+    
+}
+
 
 
 /* ==========================================================================
@@ -465,22 +613,18 @@ Footer
 footer{
     background: $blue;
     color: white;
-    @extend .pad;
+    height: 60px;
+    line-height: 60px;
+
+
 
     small{
         display: block;
         @extend .wrap;
+        padding-left: 1em;
         
     }
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -490,11 +634,18 @@ footer{
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 45em) {
+@media only screen and (min-width: 768px) {
 
     @import 'md.scss';
 
-} //End Media Queries
+} 
+
+
+@media only screen and (min-width: 1440px) {
+
+    @import 'lg.scss';
+
+} 
 
 /* ==========================================================================
    MISC Styles

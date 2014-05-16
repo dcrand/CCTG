@@ -63,6 +63,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+html, body {
+  height: 100%; }
+
+body {
+  display: table;
+  width: 100%; }
+
 ::-moz-selection {
   background: #f47836;
   text-shadow: none; }
@@ -143,33 +150,53 @@ h1, h2, h3, h4 {
   font-weight: 700; }
 
 h1 {
-  font-size: 1.75em;
-  margin: 0.67em 0;
-  line-height: 1.1em; }
+  font-size: 28px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
 
 h2 {
-  font-size: 1.313em;
-  margin: 0.83em 0; }
+  font-size: 21px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
 
 h3 {
-  font-size: 1.17em;
-  margin: 1em 0; }
+  font-size: 18px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
 
 h4 {
-  font-size: 1em;
-  margin: 1.33em 0; }
+  font-size: 16px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
 
 h5 {
-  font-size: 0.83em;
-  margin: 1.67em 0; }
+  font-size: 14px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
 
 h6 {
   font-size: 0.67em;
   margin: 2.33em 0; }
 
 p {
-  line-height: 1.4em;
-  margin: 0.75em 0; }
+  font-size: 16px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
+
+address {
+  font-size: 16px;
+  line-height: 1.4;
+  padding-top: 0.36em;
+  margin-bottom: 1.04em; }
+
+li {
+  line-height: 1.4; }
 
 a {
   color: #f47836;
@@ -177,23 +204,34 @@ a {
   a:hover, a:active, a:focus {
     color: #c54f10; }
 
+strong, b {
+  font-weight: 700; }
+
 /* ==========================================================================
    Grid / Layout 
    ========================================================================== */
-.wrap, .hero, footer small {
+.wrap, .hero, footer small, .page-hero {
   max-width: 960px;
   margin: 0 auto; }
 
-.pad, #grants p:first-child, footer {
+.pad, #grants p:first-child {
   padding: 1em 1.04167%; }
+
+.page-row {
+  display: table-row;
+  height: 1px;
+  height: 100%; }
 
 /* ==========================================================================
    Header / Logo 
    ========================================================================== */
 header {
-  background: url(../img/home.jpg) no-repeat center center;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-color: #76787b;
+  background-image: url(../img/home.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  position: relative;
   height: 400px; }
 
 #logo {
@@ -212,6 +250,7 @@ header {
    ========================================================================== */
 #nav {
   position: relative;
+  z-index: 100;
   /* first level */
   /* second level */ }
   #nav a {
@@ -281,36 +320,83 @@ header {
   line-height: 1.2em;
   margin: 0; }
 
+.page-hero {
+  position: relative; }
+  .page-hero h1 {
+    background: rgba(0, 164, 228, 0.6);
+    padding: 0.4em;
+    text-align: center;
+    color: white;
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    line-height: 1.2em; }
+  .page-hero i {
+    font-size: 1em;
+    vertical-align: -2px; }
+
 /* ==========================================================================
-How To Apply
+How To Apply -HP
 ========================================================================== */
 #how-to-apply {
   *zoom: 1;
   padding: 3em 0;
   color: #76787b;
   background: #d3d3d3;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   #how-to-apply:before, #how-to-apply:after {
     content: "";
     display: table; }
   #how-to-apply:after {
     clear: both; }
-  #how-to-apply span {
-    font-size: 4.688em; }
+  #how-to-apply:before {
+    content: 'HOW TO APPLY';
+    display: block;
+    background: #00a4e4;
+    color: white;
+    text-align: center;
+    width: 180px;
+    padding: 10px 0;
+    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    margin-left: -90px; }
+  #how-to-apply [class^="icon-"] {
+    font-size: 4.688em;
+    color: #76787b; }
+    #how-to-apply [class^="icon-"]:hover {
+      color: #c54f10; }
   #how-to-apply p {
     font-size: 0.875em; }
 
 /* ==========================================================================
-Grants
+Grants -HP
 ========================================================================== */
 #grants {
   *zoom: 1;
-  padding: 3em 0; }
+  padding: 3em 0 5em 0;
+  position: relative; }
   #grants:before, #grants:after {
     content: "";
     display: table; }
   #grants:after {
     clear: both; }
+  #grants:before {
+    content: 'GRANTS';
+    display: block;
+    background: #00a4e4;
+    color: white;
+    text-align: center;
+    width: 180px;
+    padding: 10px 0;
+    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    margin-left: -90px; }
   #grants p:first-child {
     text-align: center;
     font-size: 1.125em;
@@ -360,18 +446,57 @@ Grants
     opacity: 1; }
 
 /* ==========================================================================
+Main Content 
+========================================================================== */
+.heading {
+  color: #00a4e4;
+  border-bottom: 1px solid #f47836;
+  text-transform: uppercase; }
+
+/* ==========================================================================
+Sidebar 
+========================================================================== */
+#sidebar i {
+  font-size: 2em;
+  vertical-align: middle;
+  margin-left: 5px; }
+#sidebar a {
+  color: #76787b; }
+  #sidebar a:hover {
+    color: #c54f10; }
+#sidebar nav {
+  background: white;
+  padding: 1em;
+  text-transform: uppercase; }
+  #sidebar nav a {
+    font-size: small; }
+  #sidebar nav a:hover, #sidebar nav a:active, #sidebar nav .current-menu-item {
+    color: #00a4e4; }
+#sidebar h3 {
+  color: #00a4e4;
+  text-transform: uppercase; }
+#sidebar .btn {
+  display: block; }
+
+/* ==========================================================================
 Footer
 ========================================================================== */
 footer {
   background: #00a4e4;
-  color: white; }
+  color: white;
+  height: 60px;
+  line-height: 60px; }
   footer small {
-    display: block; }
+    display: block;
+    padding-left: 1em; }
 
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-@media only screen and (min-width: 45em) {
+@media only screen and (min-width: 768px) {
+  /* ==========================================================================
+   Typography
+   ========================================================================== */
   /* ==========================================================================
    Grid / Layout 
    ========================================================================== */
@@ -387,6 +512,66 @@ Hero
   /* ==========================================================================
 Grants
 ========================================================================== */
+  /* ==========================================================================
+Main Content 
+========================================================================== */
+  /* ==========================================================================
+Sidebar 
+========================================================================== */
+  /* ==========================================================================
+Footer 
+========================================================================== */
+  h1, h2, h3, h4 {
+    font-weight: 700; }
+  h1 {
+    font-size: 28px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  h3 {
+    font-size: 18px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  h4 {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  h5 {
+    font-size: 14px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0; }
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  address {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+  a {
+    color: #f47836;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.4;
+    padding-top: 0.36em;
+    margin-bottom: 1.04em; }
+    a:hover, a:active, a:focus {
+      color: #c54f10; }
+  strong, b {
+    font-weight: 700; }
   .third {
     display: inline;
     float: left;
@@ -450,6 +635,21 @@ Grants
   .hero {
     position: relative;
     top: 30%; }
+  .page-hero {
+    top: 10em; }
+    .page-hero h1 {
+      background: rgba(0, 164, 228, 0.6);
+      padding: 0.4em;
+      text-align: center;
+      color: white;
+      margin: 0;
+      font-weight: 300;
+      font-size: 4em;
+      text-transform: uppercase;
+      line-height: 1.2em; }
+    .page-hero i {
+      font-size: 1em;
+      vertical-align: -5px; }
   .thumb-box {
     display: inline;
     float: left;
@@ -470,11 +670,55 @@ Grants
       -ms-transform: scale(1.15);
       transform: scale(1.15);
       -webkit-transition: all 0.15s ease-in-out 0s;
-      transition: all 0.15s ease-in-out 0s; } }
+      transition: all 0.15s ease-in-out 0s; }
+  #content {
+    display: inline;
+    float: left;
+    width: 72.91667%;
+    margin: 0 1.04167%; }
+  #sidebar {
+    display: inline;
+    float: left;
+    width: 22.91667%;
+    margin: 0 1.04167%; }
+    #sidebar nav {
+      position: relative;
+      top: -4em; }
+  footer {
+    clear: both; } }
+
+@media only screen and (min-width: 1440px) {
+  /* ==========================================================================
+   Header / Logo 
+   ========================================================================== */
+  header {
+    background-color: #76787b;
+    background-image: url(../img/home.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+    height: 400px; } }
 
 /* ==========================================================================
    MISC Styles
    ========================================================================== */
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  text-align: center;
+  background: #f47836;
+  color: white !important;
+  padding: 5px 0px;
+  width: auto;
+  text-transform: uppercase;
+  margin-bottom: 1em; }
+  .btn:hover {
+    background: #c54f10; }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
