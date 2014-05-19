@@ -135,7 +135,7 @@ strong, b{
         /* second level */
         li ul{
             display: none;
-            background: $white50;
+            background: rgba(white, 0.6);
             position: absolute;
             top: 100%;
 
@@ -146,7 +146,7 @@ strong, b{
                 }
 
                 &:hover{
-                    background: $white80;                    
+                    background: rgba(white, 0.8);                    
                 }
             }
         }

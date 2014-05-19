@@ -25,10 +25,6 @@
     $orange        : #f47836;
     $orange-dark   : #c54f10;
     $blue          : #00a4e4;
-
-    $white50        : rgba(255,255,255,.7);
-    $white80        : rgba(255,255,255,.9);
-
     $black         : rgba(0,0,0,1);
         
 
@@ -192,7 +188,7 @@ p{
     @include baseline(16px);
 }
 
-address{
+address, dl{
     @include baseline(16px);
 }
 
@@ -354,9 +350,15 @@ $total-width: 100%;
         position: static;
         top: 100%;
         background: rgba($black, 0.8);
+        line-height: 1em;
 
         li{
-            a{padding-left: 2em;}
+            a{
+                padding-left: 2em;
+                margin: 0;
+                padding: 1em 0;
+            }
+
         }
     }
 
