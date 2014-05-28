@@ -1,0 +1,900 @@
+/*! Centralia Coal Transition Grants | Developed by ShowPony | http://weareshowpony.com/ */
+
+//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////    Main Syles (Mobile First)      ///////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+    //@import '_normalize';    
+    @import '../bower_components/semantic-grid/stylesheets/reset.scss';
+    @import '../bower_components/semantic-grid/stylesheets/scss/grid.scss';
+    @import '_mixins';
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+    
+    ///////////// Colors /////////////
+    $gray          : #76787b;
+    $gray-light    : #acadae;
+    $gray-lighter  : #d0d3d5;
+    $tan           : #76787b;
+    $tan-light     : #d3d3d3;       
+    $orange        : #f47836;
+    $orange-dark   : #c54f10;
+    $blue          : #00a4e4;
+    $black         : #000000;
+        
+
+    ///////////// Sitewide /////////////
+    $font-stack    : 'Lato', sans-serif;
+    $primary-color : $gray;
+
+
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {    
+    color: $primary-color;
+}
+
+html {
+    font-size: 1em;
+    line-height: $base-line-height;
+    font-family: $font-stack;
+    font-weight: 400;
+    background: #efefee;
+    text-rendering: optimizeLegibility; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+}
+
+html,
+body { height: 100%; }
+ 
+body {
+  display: table;
+  width: 100%;
+}
+
+
+::selection {
+    background: $orange;
+    text-shadow: none;
+    color: white;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $orange;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+//inputs
+input[type="text"], textarea{
+    width: 97%;
+    padding: 1%;
+    border: 1px solid white;
+    outline: none;
+
+    &:focus, &:hover{
+       
+        border: solid 1px $blue;
+    }
+}
+
+textarea{
+    min-height: 30em;
+}
+
+input[type="submit"]{
+    border: none;
+    @extend .btn;
+    padding: 5px 30px!important;
+    font-size: 1em;
+}
+
+.validation_error,.validation_message{
+    color: #960000;
+}
+
+.validation_message{
+    font-size: small;
+}
+
+.validation_error{
+    margin: 1em 0;
+    background: #960000;
+    background: rgba(#960000, 0.7);
+    color: white;
+    padding: 1em;
+    font-weight: 700;
+}
+
+.gfield_error{
+    input,textarea{
+         background: rgba(#960000, 0.1);
+         border: 1px solid rgba(#960000, 0.4);
+         color: white;
+
+         &:focus{
+           background: rgba(#960000, 0.07);
+            color: initial;
+            border: 1px solid rgba(#960000, 0.4);
+        }
+    }
+}
+
+.gform_body{
+
+    li{
+        list-style: none !important;
+    }
+}
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+@font-face {
+    font-family: 'icon';
+    src:url('../fonts/icon.eot?1taow8');
+    src:url('../fonts/icon.eot?#iefix1taow8') format('embedded-opentype'),
+        url('../fonts/icon.woff?1taow8') format('woff'),
+        url('../fonts/icon.ttf?1taow8') format('truetype'),
+        url('../fonts/icon.svg?1taow8#icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tower:before {
+    content: "\e600";
+}
+.icon-recycle:before {
+    content: "\e601";
+}
+.icon-pin:before {
+    content: "\e602";
+}
+.icon-mail:before {
+    content: "\e603";
+}
+.icon-info:before {
+    content: "\e604";
+}
+.icon-hammer:before {
+    content: "\e605";
+}
+.icon-drop:before {
+    content: "\e606";
+}
+.icon-down_arrow:before {
+    content: "\e607";
+}
+.icon-check:before {
+    content: "\e608";
+}
+
+
+h1,h2,h3,h4{
+    font-weight: 700;
+}
+
+h1 {
+    @include baseline(28px);
+}
+
+h2 {
+    @include baseline(21px);;
+}
+
+h3 {
+   @include baseline(18px);
+}
+
+h4 {
+    @include baseline(16px);
+}
+
+h5 {
+    @include baseline(14px);
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+p{
+    @include baseline(16px);
+}
+
+address, dl{
+    @include baseline(16px);
+}
+
+li{
+    line-height: $base-line-height;
+}
+
+a{
+    color: $orange;
+    text-decoration: none;
+    //@include baseline(16px);
+    &:hover, &:active, &:focus{
+        color: $orange-dark;
+    }
+}
+
+strong, b{
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Grid / Layout 
+   ========================================================================== */
+
+//Grid Columns @include column(9);
+
+$columns: 12;
+$column-width: 60;
+$gutter-width: 20;
+$total-width: 100%; 
+
+
+.wrap{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.pad{
+    padding: 3em 1.04167%;
+}
+
+.page-row {
+  display: table-row;
+  height: 1px;
+  height: 100%;
+}
+
+
+/* ==========================================================================
+   Header / Logo 
+   ========================================================================== */
+
+  header{
+    background-color: $gray;
+    background-image: url(../img/home.jpg); 
+    background-repeat: no-repeat;   
+    background-position: center center;
+    
+    position: relative;
+    height: 400px;
+
+  }
+
+
+//page headers
+.page-template-page-templatesinfo-php header{
+    background-image: url(../img/info.jpg);
+}
+.archive header{
+    background-image: url(../img/news.jpg);
+}
+
+.page-id-8 header{
+   background-image: url(../img/weather.jpg); 
+}
+
+.page-id-10 header{
+   background-image: url(../img/economic-development.jpg); 
+}
+
+.page-id-12 header{
+   background-image: url(../img/energy-tech.jpg); 
+}
+
+.page-template-page-templatescontact-php header{
+    background-image: url(../img/contact.jpg); 
+}
+
+
+
+#logo{
+    background: $orange;
+    background-image: url('../img/logo.svg');
+    background-size: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 40px;
+    padding: 15px 0;
+    width: 100%;
+    border-bottom: 3px solid $orange-dark;
+    text-align: center;
+
+    img{
+        width: 200px;
+    }
+}
+
+
+/* ==========================================================================
+   Navigation 
+   ========================================================================== */
+
+#nav{
+    position: relative;
+    z-index: 100;
+
+    a{
+        color: white;
+        text-decoration: none;
+        line-height: 1.4em;
+    }
+
+    a:hover, a:active{
+        background: white;
+    }
+
+    .current-menu-parent {
+        a{font-weight: 700;}
+        ul a{font-weight: initial;}
+    }
+
+    .current-menu-item a{
+        font-weight: 700 !important;
+    }
+
+    .sub-menu .current-menu-item a{
+        font-weight: 700 !important;
+        background: rgba(white, .8);
+    }    
+
+    & > a{
+        display: none;
+        width: 2.5em;
+        height: 2.5em;
+        text-align: left;
+        text-indent: -9999px;
+        background-color: $orange-dark;
+        position: absolute;
+        top: -57px;
+        left: 10px;
+
+        &:before, &:after{
+            position: absolute;
+            border: 2px solid #fff;
+            top: 35%;
+            left: 25%;
+            right: 25%;
+            content: '';
+        }
+
+        &:after{
+            top: 60%;
+        }
+    }
+    
+    &:not( :target ) > a:first-of-type,
+    &:target > a:last-of-type{
+        display: block;
+    }
+
+    /* first level */
+    ul{
+        height: auto;
+        display: none;
+        position: absolute;
+        background: rgba($black, 0.8);
+        left: 0;
+        right: 0;
+
+        li{
+            width: 100%;   
+            a{
+                text-align: left;
+                display: block;
+                padding: 1em 0.833em;
+            } 
+        }
+    }
+
+    ul > li:hover > a,
+    ul:not( :hover ) > li.active > a{
+        background-color: $black;        
+    }
+
+    &:target > ul{
+        display: block;
+    }
+
+
+    /* second level */
+    li ul{
+        display: none;
+        position: static;
+        top: 100%;
+        background: rgba($black, 0.8);
+        line-height: 1em;
+
+        li{
+            a{           
+                margin: 0;
+                padding: 1em 2em;
+            }
+
+        }
+    }
+
+    li:hover ul{
+        display: block;
+    }
+
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero{
+    @extend .wrap;
+    
+    h1{
+        background: $blue;
+        background: rgba($blue, 0.6);        
+        padding: 2em;
+        text-align: center;
+        color: white;
+        font-weight: 700; 
+        font-size: 1em;
+        line-height: 1.2em;
+        margin: 0;
+    }
+}
+
+.page-hero{
+
+    position: relative;
+    text-align: center;
+    top: 30%;
+
+        
+    h1{
+        background: $blue;
+        display: inline;  
+        background: rgba($blue, 0.6);        
+        padding: .4em;
+        text-align: center;
+        color: white;
+        margin: 0;        
+        font-weight: 300; 
+        font-size: 2em;
+        text-transform: uppercase;
+        line-height: 2.1em;
+
+    }
+
+    i{
+        font-size: 1em;
+        margin-right: 0.2em;
+        vertical-align: -2px;
+    }
+}
+
+
+.page-hero h1:before {
+    font-family: 'icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -5px;
+    margin-right: 0.2em;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+ }
+.page-id-8 .page-hero h1:before {content: "\e606";}
+.page-id-10 .page-hero h1:before {content: "\e605";}
+.page-id-12 .page-hero h1:before {content: "\e601";}
+.page-id-24 .page-hero h1:before {content: "\e602";}
+
+
+/* ==========================================================================
+How To Apply -HP
+========================================================================== */
+    
+#how-to-apply{
+    @include clearfix();
+    padding: 3em 0;       
+    color: $tan;
+    background: $tan-light;
+    text-align: center;
+    position: relative;
+
+    .third{
+        //padding: 2em 0;
+    }
+
+    &:before{
+        content: 'HOW TO APPLY';
+        display: block;
+        background: $blue;
+        color: white;
+        text-align: center;
+        width: 180px;
+        padding: 10px 0;
+        font-weight: 700;
+        position: absolute;
+        left: 50%;
+        top: -20px;
+        margin-left: -90px;
+
+    }        
+    
+    [class^="icon-"]{
+        font-size: 4.688em;
+        color: $primary-color;
+
+        &:hover{
+            color: $orange;
+        }
+    }
+    p{
+        font-size: 0.875em;
+    }
+}
+
+/* ==========================================================================
+Grants -HP
+========================================================================== */
+
+#grants{
+    @include clearfix();
+    padding: 3em 0 5em 0;
+    position: relative;
+
+    &:before{
+        content: 'GRANTS';
+        display: block;
+        background: $blue;
+        color: white;
+        text-align: center;
+        width: 180px;
+        padding: 10px 0;
+        font-weight: 700;
+        position: absolute;
+        left: 50%;
+        top: -20px;
+        margin-left: -90px;
+
+    }
+
+    p:first-child{
+        text-align: center;
+        font-size: 1.125em;
+        @extend .pad;
+        color: $gray-light;
+    }
+}
+    
+.thumb-box{
+    display: block;
+    @include column(12);
+    margin-top: 1em;
+    border: solid 1px $gray-light;
+    background: white;
+    color: $primary-color;
+    position: relative;    
+   
+
+    .inner{
+        padding: 1em;
+        border-bottom: 7px solid $gray-lighter;
+        min-height: 12em;        
+    }
+
+    h3{
+        color: $blue;
+        text-transform: uppercase;
+    }
+
+    p{
+        font-size: 0.875em;
+    }
+    img{
+        max-width: initial;
+        height: 190px;
+
+    }
+
+    .over{
+        position: absolute;
+        top: 0;
+        background: rgba($black, 0.6);
+        width: 100%;
+        height: 190px;
+        opacity: 0;
+            
+        span{
+            font-size: 60px;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -30px;
+            margin-left: -30px;            
+        }
+    }
+
+    .thumb {
+        text-align: center;
+        overflow: hidden;
+    }    
+
+
+    &:hover > .inner{
+        border-bottom: 7px solid $orange;
+        color: $primary-color;
+    }
+
+    &:hover > .over{
+        opacity: 1;
+    }
+
+}
+
+
+/* ==========================================================================
+Main Content 
+========================================================================== */
+
+#content{
+
+    padding-bottom: 2em;
+
+    li{
+        margin-top: 1em;
+        list-style: initial;
+
+        address{
+            margin-left: 2em;
+            font-weight: 700;
+        }
+    }
+
+    dt{
+        font-weight: 700;
+    }
+
+    dd{
+        margin-left: 2em;
+    }
+
+    article{
+        margin-bottom: 3em;
+    }
+
+    .thumb{
+    float: left;
+    margin-top: 11px;
+    padding: 0 1em 0 0;
+    }
+    
+}
+
+.heading{
+    color: $blue;
+    border-bottom: 1px solid $orange;
+    text-transform: uppercase;
+
+    span{
+        color: $gray;
+        font-size: .8em;
+        vertical-align: 15%;
+    }    
+}
+
+.category-grant-recipients{
+    h4{margin-bottom: .2em;}
+    #content p{
+        margin-left: 1.5em;
+    }
+}
+
+
+.pagination{
+    li{
+        list-style: none;
+        display: inline;
+    }
+}
+
+time, .website{
+    font-size: 0.8em;
+}
+
+/* ==========================================================================
+Sidebar 
+========================================================================== */
+
+
+#sidebar{
+
+    
+    i{
+        font-size: 2em;
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+
+    a{
+        color: $primary-color;
+        &:hover{
+            color: $orange-dark;
+        }
+    }
+
+    h3{
+        color: $blue;
+        text-transform: uppercase;
+    }
+
+    p{
+        font-size: small;
+    }
+
+    nav{
+        background: white;
+        padding: 1.5em;
+        text-transform: uppercase;
+        
+        a{
+            font-size: small;
+        }
+
+        a:hover, a:active, .current_page_item a{
+            color: $blue;
+        }
+    }
+
+    
+
+    .btn{
+        display: block;        
+    }
+
+    .link-to-article{
+        color: $orange;
+    }
+    
+}
+
+
+/* ==========================================================================
+Info Template 
+========================================================================== */
+.page-template-page-templatesinfo-php{
+    .subnav{
+        background: white;
+        padding: 1.5em;
+        text-transform: uppercase;
+        margin-bottom: 2em;
+        
+        a{
+            font-size: small;        
+            color: $primary-color;
+        &:hover{
+            color: $orange-dark;
+        }
+    }
+
+        a:hover, a:active, .current_page_item a{
+            color: $blue;
+        }
+    }
+}
+
+
+
+
+/* ==========================================================================
+Footer
+========================================================================== */
+
+footer{
+    background: $blue;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+
+
+
+    small{
+        display: block;
+        @extend .wrap;
+        padding-left: 1em;
+        
+    }
+}
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 768px) {
+
+    @import 'md.scss';
+
+} 
+
+
+@media only screen and (min-width: 1440px) {
+
+    @import 'lg.scss';
+
+} 
+
+/* ==========================================================================
+   MISC Styles
+   ========================================================================== */
+
+   @import 'misc.scss';
+
+
+   /* ==========================================================================
+   IE Styles
+   ========================================================================== */
+ @import 'ie.scss';
+

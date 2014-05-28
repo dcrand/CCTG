@@ -1,0 +1,81 @@
+//////////////////////////////////////////
+//////////////	 IE Styles 	//////////////
+//////////////////////////////////////////
+
+
+.lt-ie9{
+
+#logo{
+    background-image: url('../img/logo.png');
+}
+
+/* ==========================================================================
+   Navigation 
+   ========================================================================== */
+
+#nav{
+  
+
+    a{
+        color: white;
+      
+    }
+
+    a:hover, a:active{
+        background: white;
+        color: black;
+    }
+
+
+    .sub-menu .current-menu-item a{
+       
+        background: white;
+        color: black;
+    }    
+
+
+    
+    /* first level */
+    ul{
+      
+        background: $black;
+        margin-bottom: 0;
+  
+    }
+
+    ul > li:hover > a,
+    ul:not( :hover ) > li.active > a{
+        background-color: $black;        
+    }
+
+
+    /* second level */
+    li ul{
+  
+        background: $black;
+        display: none;         
+        position: absolute;
+        top: -16px;      
+    }
+
+}
+
+
+
+#nav ul{
+	position: relative !important; 
+	left: none;
+	right: 0 !important;
+}
+
+.nav-wrap{
+        background: $black;     
+        @include clearfix();
+        position: fixed;
+        width: 100%;      
+        z-index: 10;
+    }
+
+
+
+} //End lt-ie9

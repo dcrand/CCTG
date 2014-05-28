@@ -1,0 +1,302 @@
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// Medium Stylesheet //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,h2,h3,h4{
+    font-weight: 700;
+}
+
+h1 {
+    @include baseline(28px);
+}
+
+h2 {
+    @include baseline(21px);;
+}
+
+h3 {
+   @include baseline(18px);
+}
+
+h4 {
+    @include baseline(16px);
+}
+
+h5 {
+    @include baseline(14px);
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+p{
+    @include baseline(16px);
+}
+
+address{
+    @include baseline(16px);
+}
+
+a{
+    color: $orange;
+    text-decoration: none;
+    @include baseline(16px);
+    &:hover, &:active, &:focus{
+        color: $orange-dark;
+    }
+}
+
+strong, b{
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   Grid / Layout 
+   ========================================================================== */
+
+     .third{@include column(4);}
+
+     .wrap{
+       
+     }
+
+/* ==========================================================================
+   Header / Logo 
+   ========================================================================== */ 
+
+    
+    #logo{
+        position: absolute;    
+        float: left;    
+        height: 50px;
+        padding: 10px 0;
+        width: 270px;
+        border-bottom: 3px solid $orange-dark;
+        text-align: center;
+
+        img{
+            width: 230px;
+        }
+    }
+
+
+/* ==========================================================================
+   Navigation 
+   ========================================================================== */ 
+
+    .nav-wrap{
+        background: $black;
+        background: rgba($black, 0.8);
+        @include clearfix();
+        position: fixed;
+        width: 100%;      
+        z-index: 10;
+    }
+
+    #nav{
+
+        & > a{
+            display: none !important;
+        }
+
+        li{
+            position: relative;
+        }
+     
+        /* first level */
+        & > ul{
+            background: none;
+            display: block;
+            position: relative;
+            float: right;
+            height: 3.438em;
+            left: initial;
+            width: 60%;
+
+        }
+        
+        & > ul > li{
+            width: 25%;
+            height: 100%;
+            float: left;
+        }
+
+        ul > li:hover > a,
+        ul:not( :hover ) > li.active > a{
+            background-color: initial;
+            font-weight: 700;        
+        }
+
+        /* second level */
+        li ul{
+            display: none;
+            background: rgba(white, 0.6);
+            position: absolute;
+            top: 100%;
+
+            li{
+                a{
+                    padding-left: 1em;
+                    color: $gray;
+                }
+
+                &:hover{
+                    background: rgba(white, 0.8);                    
+                }
+            }
+        }
+
+        li:hover ul {
+            display: block;                  
+        }
+    }
+
+
+/* ==========================================================================
+Hero
+========================================================================== */
+
+.hero{
+    position: relative;
+    top: 30%;
+
+    h1{
+        font-size: 1.313em;
+    }
+}
+
+.page-hero{
+    @extend .wrap;
+    top: 33%;
+    
+    
+    h1{
+         
+        background: rgba($blue, 0.6);        
+        padding: .4em;
+        color: white;
+        margin: 0;        
+        font-weight: 300; 
+        font-size: 4em;
+        text-transform: uppercase;
+        line-height: 2.1em;
+    }
+
+    i{
+        font-size: 1em;
+        vertical-align: -5px;
+    }
+}
+
+.page-id-10 .page-hero{
+    h1{
+        font-size: 2.4em;
+    }
+}
+
+/* ==========================================================================
+Grants
+========================================================================== */
+
+#grants{
+    
+}
+    
+.thumb-box{
+    @include column(4);
+    margin: 0 0.9%;
+    padding: 0;
+
+    .inner{
+        //padding: 1em;
+        border-bottom: 7px solid $gray-lighter;
+        transition: all 0.15s ease-in-out 0s;
+    }
+    
+    .over{           
+        transition: all 0.15s ease-in-out 0s;
+    }
+
+    .thumb{
+        overflow: hidden;
+    }
+
+    img{
+        transition: all 0.15s ease-in-out 0s;
+    }
+
+    &:hover > .thumb img{
+        transform: scale(1.15);
+        
+    }
+
+}
+
+
+/* ==========================================================================
+Main Content 
+========================================================================== */
+
+#content{
+    
+    @include column(8);
+}
+
+
+/* ==========================================================================
+Sidebar 
+========================================================================== */
+
+#sidebar{
+    
+     @include column(3);
+     @include push(1);
+     margin-bottom: 2em;
+
+     nav{
+        position: relative;        
+        margin-top: -4em;
+        margin-bottom: 2em;
+     }
+     h4{
+        margin-bottom: 0;
+    }
+}
+
+
+/* ==========================================================================
+Info Template 
+========================================================================== */
+
+
+.page-template-page-templatesinfo-php{
+    .subnav{
+        width: 17.95%;
+        margin: 0 1.04167%;
+        margin-top: -5em;
+        margin-bottom: 2em;
+        float: right;
+        background: white;
+        padding: 1.5em;
+        text-transform: uppercase;
+        position: relative;   
+    }
+}
+
+/* ==========================================================================
+Footer 
+========================================================================== */
+
+footer{
+    clear: both;
+}
+
+
+
